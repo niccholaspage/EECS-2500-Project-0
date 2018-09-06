@@ -23,7 +23,7 @@ public class Reader {
     }
 
     private static Player generatePlayer(BufferedReader reader) throws IOException {
-        Player player = null;
+        Player player;
 
         String position = reader.readLine();
 
@@ -39,7 +39,14 @@ public class Reader {
             case "Quarterback":
                 player = new Quarterback();
                 break;
+            default:
+                throw new IllegalArgumentException();
         }
+
+        player.setPosition(position);
+        player.setName(reader.readLine());
+        player.setWeight(Float.parseFloat(reader.readLine()));
+        player.setAge(Integer.parseInt(reader.readLine()));
 
         if (player instanceof Defensive) {
             Defensive defensive = (Defensive) player;
