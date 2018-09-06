@@ -23,22 +23,23 @@ public class Reader {
     }
 
     private static Player generatePlayer(BufferedReader reader) throws IOException {
-        Player player = new Player();
+        Player player = null;
 
         String position = reader.readLine();
 
-        if (position.equals("Defensive")) {
-            player = new Defensive();
-        } else if (position.equals("Tight End")) {
-            player = new TightEnd();
-        } else if (position.equals("Quarterback")) {
-            player = new Quarterback();
+        switch (position) {
+            case "Defensive":
+                player = new Defensive();
+                break;
+            case "Tight End":
+            case "Running Back":
+            case "Receiver":
+                player = new TERBR();
+                break;
+            case "Quarterback":
+                player = new Quarterback();
+                break;
         }
-
-        player.setPosition(position);
-        player.setName(reader.readLine());
-        player.setWeight(Float.parseFloat(reader.readLine()));
-        player.setAge(Integer.parseInt(reader.readLine()));
 
         if (player instanceof Defensive) {
             Defensive defensive = (Defensive) player;
@@ -46,8 +47,8 @@ public class Reader {
             defensive.setTackles(Integer.parseInt(reader.readLine()));
             defensive.setSacks(Float.parseFloat(reader.readLine()));
             defensive.setInterceptions(Integer.parseInt(reader.readLine()));
-        } else if (player instanceof TightEnd) {
-            TightEnd tightEnd = (TightEnd) player;
+        } else if (player instanceof TERBR) {
+            TERBR tightEnd = (TERBR) player;
 
             tightEnd.setReceptions(Integer.parseInt(reader.readLine()));
             tightEnd.setReceptionYards(Integer.parseInt(reader.readLine()));

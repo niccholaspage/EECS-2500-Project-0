@@ -1,4 +1,4 @@
-public class TightEnd extends Player {
+public class TERBR extends Player {
     private int receptions;
 
     private int receptionYards;
@@ -11,7 +11,7 @@ public class TightEnd extends Player {
 
     @Override
     public String toString() {
-        return "TightEnd{" +
+        return "TERBR{" +
                 "receptions=" + receptions +
                 ", receptionYards=" + receptionYards +
                 ", rushes=" + rushes +
