@@ -41,11 +41,9 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
-                "position='" + position + '\'' +
-                ", name='" + name + '\'' +
-                ", weight=" + weight +
-                ", age=" + age +
-                '}';
+        return "Position: " + position +
+                ", Name: " + name +
+                ", Weight: " + weight +
+                ", Age: " + age;
     }
 }

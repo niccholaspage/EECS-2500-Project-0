@@ -42,21 +42,21 @@ public class Reader {
 
             return defensive;
         } else if (position.equals("Tight End") || position.equals("Running Back") || position.equals("Receiver")) {
-            TERBR terbr = new TERBR();
+            Receiver receiver = new Receiver();
 
-            terbr.setPosition(position);
-            terbr.setName(name);
-            terbr.setWeight(weight);
-            terbr.setAge(age);
+            receiver.setPosition(position);
+            receiver.setName(name);
+            receiver.setWeight(weight);
+            receiver.setAge(age);
 
-            terbr.setReceptions(Integer.parseInt(reader.readLine()));
-            terbr.setReceptionYards(Integer.parseInt(reader.readLine()));
-            terbr.setRushes(Integer.parseInt(reader.readLine()));
-            terbr.setRushingYards(Integer.parseInt(reader.readLine()));
-            terbr.setTouchdowns(Integer.parseInt(reader.readLine()));
-            terbr.setFumbles(Integer.parseInt(reader.readLine()));
+            receiver.setReceptions(Integer.parseInt(reader.readLine()));
+            receiver.setReceptionYards(Integer.parseInt(reader.readLine()));
+            receiver.setRushes(Integer.parseInt(reader.readLine()));
+            receiver.setRushingYards(Integer.parseInt(reader.readLine()));
+            receiver.setTouchdowns(Integer.parseInt(reader.readLine()));
+            receiver.setFumbles(Integer.parseInt(reader.readLine()));
 
-            return terbr;
+            return receiver;
         } else if (position.equals("Quarterback")) {
             Quarterback quarterback = new Quarterback();
 

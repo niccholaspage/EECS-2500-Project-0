@@ -17,17 +17,16 @@ public class Quarterback extends Player {
 
     @Override
     public String toString() {
-        return "Quarterback{" +
-                "passAttempts=" + passAttempts +
-                ", passCompletions=" + passCompletions +
-                ", passingYards=" + passingYards +
-                ", rushingAttempts=" + rushingAttempts +
-                ", rushingYards=" + rushingYards +
-                ", touchdowns=" + touchdowns +
-                ", interceptions=" + interceptions +
-                ", fumbles=" + fumbles +
-                ", sacks=" + sacks +
-                "} " + super.toString();
+        return super.toString() + ", " +
+                "Pass Attempts: " + passAttempts +
+                ", Pass Completions: " + passCompletions +
+                ", Passing Yards: " + passingYards +
+                ", Rushing Attempts: " + rushingAttempts +
+                ", Rushing Yards: " + rushingYards +
+                ", Touchdowns: " + touchdowns +
+                ", Interceptions"  + interceptions +
+                ", Fumbles: " + fumbles +
+                ", Sacks: " + sacks;
     }
 
     private int sacks;

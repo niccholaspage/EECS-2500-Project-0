@@ -3,16 +3,15 @@ public class Defensive extends Player {
 
     private float sacks;
 
+    private int interceptions;
+
     @Override
     public String toString() {
-        return "Defensive{" +
-                "tackles=" + tackles +
-                ", sacks=" + sacks +
-                ", interceptions=" + interceptions +
-                "} " + super.toString();
+        return super.toString() +
+                ", Tackles: " + tackles +
+                ", Sacks: " + sacks +
+                ", Interceptions: " + interceptions;
     }
-
-    private int interceptions;
 
     public int getTackles() {
         return tackles;

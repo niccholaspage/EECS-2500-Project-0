@@ -1,4 +1,4 @@
-public class TERBR extends Player {
+public class Receiver extends Player {
     private int receptions;
 
     private int receptionYards;
@@ -9,19 +9,18 @@ public class TERBR extends Player {
 
     private int touchdowns;
 
+    private int fumbles;
+
     @Override
     public String toString() {
-        return "TERBR{" +
-                "receptions=" + receptions +
-                ", receptionYards=" + receptionYards +
-                ", rushes=" + rushes +
-                ", rushingYards=" + rushingYards +
-                ", touchdowns=" + touchdowns +
-                ", fumbles=" + fumbles +
-                "} " + super.toString();
+        return super.toString() + ", " +
+                "Receptions: " + receptions +
+                ", Reception Yards: " + receptionYards +
+                ", Rushes: " + rushes +
+                ", Rushing Yards: " + rushingYards +
+                ", Touchdowns: " + touchdowns +
+                ", Fumbles: " + fumbles;
     }
-
-    private int fumbles;
 
     public int getReceptions() {
         return receptions;
