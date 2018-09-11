@@ -54,6 +54,8 @@ T. J. Watt
 0
 Receiver
 Jared Cook
+200.0
+24
 9
 180
 0
