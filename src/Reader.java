@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,7 +8,7 @@ public class Reader {
     public static void main(String[] args) {
         List<Player> players = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(new File("playerinfo.txt")))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("playerinfo.txt"))) {
             while (reader.ready()) {
                 players.add(generatePlayer(reader));
             }
