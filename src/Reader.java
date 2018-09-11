@@ -10,7 +10,11 @@ public class Reader {
 
         try (BufferedReader reader = new BufferedReader(new FileReader("playerinfo.txt"))) {
             while (reader.ready()) {
-                players.add(generatePlayer(reader));
+                Player player = generatePlayer(reader);
+
+                if (player != null) {
+                    players.add(player);
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -23,17 +27,11 @@ public class Reader {
 
     private static Player generatePlayer(BufferedReader reader) throws IOException {
         String position = reader.readLine();
-        String name = reader.readLine();
-        float weight = Float.parseFloat(reader.readLine());
-        int age = Integer.parseInt(reader.readLine());
 
         if (position.equals("Defense")) {
             Defense defense = new Defense();
 
-            defense.setPosition(position);
-            defense.setName(name);
-            defense.setWeight(weight);
-            defense.setAge(age);
+            setPlayerFields(reader, defense, position);
 
             defense.setTackles(Integer.parseInt(reader.readLine()));
             defense.setSacks(Float.parseFloat(reader.readLine()));
@@ -43,10 +41,7 @@ public class Reader {
         } else if (position.equals("Tight End") || position.equals("Running Back") || position.equals("Receiver")) {
             Receiver receiver = new Receiver();
 
-            receiver.setPosition(position);
-            receiver.setName(name);
-            receiver.setWeight(weight);
-            receiver.setAge(age);
+            setPlayerFields(reader, receiver, position);
 
             receiver.setReceptions(Integer.parseInt(reader.readLine()));
             receiver.setReceptionYards(Integer.parseInt(reader.readLine()));
@@ -59,10 +54,7 @@ public class Reader {
         } else if (position.equals("Quarterback")) {
             Quarterback quarterback = new Quarterback();
 
-            quarterback.setPosition(position);
-            quarterback.setName(name);
-            quarterback.setWeight(weight);
-            quarterback.setAge(age);
+            setPlayerFields(reader, quarterback, position);
 
             quarterback.setPassAttempts(Integer.parseInt(reader.readLine()));
             quarterback.setPassCompletions(Integer.parseInt(reader.readLine()));
@@ -78,5 +70,16 @@ public class Reader {
         } else {
             return null;
         }
+    }
+
+    private static void setPlayerFields(BufferedReader reader, Player player, String position) throws IOException {
+        String name = reader.readLine();
+        float weight = Float.parseFloat(reader.readLine());
+        int age = Integer.parseInt(reader.readLine());
+
+        player.setPosition(position);
+        player.setName(name);
+        player.setWeight(weight);
+        player.setAge(age);
     }
 }
