@@ -1,4 +1,4 @@
-public class Defensive extends Player {
+public class Defense extends Player {
     private int tackles;
 
     private float sacks;

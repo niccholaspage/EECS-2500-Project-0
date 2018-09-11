@@ -1,0 +1,30 @@
+Defense
+Hannah Decker
+113.7
+17
+20
+40.5
+2000
+Tight End
+Nicholas Nassar
+125.2
+24
+10
+200
+10
+250
+3
+27
+Quarterback
+Quinn Kleinfelter
+50.50
+19
+50
+2
+1000
+20
+200
+50
+5
+12
+10

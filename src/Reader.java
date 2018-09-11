@@ -27,19 +27,19 @@ public class Reader {
         float weight = Float.parseFloat(reader.readLine());
         int age = Integer.parseInt(reader.readLine());
 
-        if (position.equals("Defensive")) {
-            Defensive defensive = new Defensive();
+        if (position.equals("Defense")) {
+            Defense defense = new Defense();
 
-            defensive.setPosition(position);
-            defensive.setName(name);
-            defensive.setWeight(weight);
-            defensive.setAge(age);
+            defense.setPosition(position);
+            defense.setName(name);
+            defense.setWeight(weight);
+            defense.setAge(age);
 
-            defensive.setTackles(Integer.parseInt(reader.readLine()));
-            defensive.setSacks(Float.parseFloat(reader.readLine()));
-            defensive.setInterceptions(Integer.parseInt(reader.readLine()));
+            defense.setTackles(Integer.parseInt(reader.readLine()));
+            defense.setSacks(Float.parseFloat(reader.readLine()));
+            defense.setInterceptions(Integer.parseInt(reader.readLine()));
 
-            return defensive;
+            return defense;
         } else if (position.equals("Tight End") || position.equals("Running Back") || position.equals("Receiver")) {
             Receiver receiver = new Receiver();
 
