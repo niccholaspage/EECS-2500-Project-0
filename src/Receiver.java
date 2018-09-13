@@ -11,15 +11,19 @@ public class Receiver extends Player {
 
     private int fumbles;
 
+    public Receiver(String position, String name, float weight, int age) {
+        super(position, name, weight, age);
+    }
+
     @Override
     public String toString() {
-        return super.toString() + ", " +
-                "Receptions: " + receptions +
-                ", Reception Yards: " + receptionYards +
-                ", Rushes: " + rushes +
-                ", Rushing Yards: " + rushingYards +
-                ", Touchdowns: " + touchdowns +
-                ", Fumbles: " + fumbles;
+        return super.toString() +
+                SPACING + receptions +
+                SPACING + receptionYards +
+                SPACING + rushes +
+                SPACING + rushingYards +
+                SPACING + touchdowns +
+                SPACING + fumbles;
     }
 
     public int getReceptions() {

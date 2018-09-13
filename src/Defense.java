@@ -5,12 +5,16 @@ public class Defense extends Player {
 
     private int interceptions;
 
+    public Defense(String position, String name, float weight, int age) {
+        super(position, name, weight, age);
+    }
+
     @Override
     public String toString() {
         return super.toString() +
-                ", Tackles: " + tackles +
-                ", Sacks: " + sacks +
-                ", Interceptions: " + interceptions;
+                SPACING + tackles +
+                SPACING + sacks +
+                SPACING + interceptions;
     }
 
     public int getTackles() {

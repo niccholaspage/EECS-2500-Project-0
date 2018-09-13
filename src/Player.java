@@ -1,4 +1,6 @@
 public class Player {
+    protected static final String SPACING = "    ";
+
     private String position;
 
     private String name;
@@ -7,43 +9,37 @@ public class Player {
 
     private int age;
 
-    public String getPosition() {
-        return position;
+    public Player(String position, String name, float weight, int age) {
+        this.position = position;
+
+        this.name = name;
+
+        this.weight = weight;
+
+        this.age = age;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public String getPosition() {
+        return position;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public float getWeight() {
         return weight;
-    }
-
-    public void setWeight(float weight) {
-        this.weight = weight;
     }
 
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     @Override
     public String toString() {
-        return "Position: " + position +
-                ", Name: " + name +
-                ", Weight: " + weight +
-                ", Age: " + age;
+        return position +
+                SPACING + name +
+                SPACING + weight +
+                SPACING + age;
     }
 }

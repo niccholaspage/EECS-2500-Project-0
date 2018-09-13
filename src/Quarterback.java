@@ -14,22 +14,25 @@ public class Quarterback extends Player {
     private int interceptions;
 
     private int fumbles;
+    private int sacks;
+
+    public Quarterback(String position, String name, float weight, int age) {
+        super(position, name, weight, age);
+    }
 
     @Override
     public String toString() {
-        return super.toString() + ", " +
-                "Pass Attempts: " + passAttempts +
-                ", Pass Completions: " + passCompletions +
-                ", Passing Yards: " + passingYards +
-                ", Rushing Attempts: " + rushingAttempts +
-                ", Rushing Yards: " + rushingYards +
-                ", Touchdowns: " + touchdowns +
-                ", Interceptions"  + interceptions +
-                ", Fumbles: " + fumbles +
-                ", Sacks: " + sacks;
+        return super.toString() +
+                SPACING + passAttempts +
+                SPACING + passCompletions +
+                SPACING + passingYards +
+                SPACING + rushingAttempts +
+                SPACING + rushingYards +
+                SPACING + touchdowns +
+                SPACING + interceptions +
+                SPACING + fumbles +
+                SPACING + sacks;
     }
-
-    private int sacks;
 
     public int getPassCompletions() {
         return passCompletions;

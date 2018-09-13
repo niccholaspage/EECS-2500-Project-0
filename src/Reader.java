@@ -34,9 +34,7 @@ public class Reader {
         String position = reader.readLine();
 
         if (position.equals("Defense")) {
-            Defense defense = new Defense();
-
-            setPlayerFields(reader, defense, position);
+            Defense defense = (Defense) constructPlayer(reader, position);
 
             defense.setTackles(Integer.parseInt(reader.readLine()));
             defense.setSacks(Float.parseFloat(reader.readLine()));
@@ -44,9 +42,7 @@ public class Reader {
 
             return defense;
         } else if (position.equals("Tight End") || position.equals("Running Back") || position.equals("Receiver")) {
-            Receiver receiver = new Receiver();
-
-            setPlayerFields(reader, receiver, position);
+            Receiver receiver = (Receiver) constructPlayer(reader, position);
 
             receiver.setReceptions(Integer.parseInt(reader.readLine()));
             receiver.setReceptionYards(Integer.parseInt(reader.readLine()));
@@ -57,9 +53,7 @@ public class Reader {
 
             return receiver;
         } else if (position.equals("Quarterback")) {
-            Quarterback quarterback = new Quarterback();
-
-            setPlayerFields(reader, quarterback, position);
+            Quarterback quarterback = (Quarterback) constructPlayer(reader, position);
 
             quarterback.setPassAttempts(Integer.parseInt(reader.readLine()));
             quarterback.setPassCompletions(Integer.parseInt(reader.readLine()));
@@ -77,14 +71,19 @@ public class Reader {
         }
     }
 
-    private static void setPlayerFields(BufferedReader reader, Player player, String position) throws IOException {
+    private static Player constructPlayer(BufferedReader reader, String position) throws IOException {
         String name = reader.readLine();
         float weight = Float.parseFloat(reader.readLine());
         int age = Integer.parseInt(reader.readLine());
 
-        player.setPosition(position);
-        player.setName(name);
-        player.setWeight(weight);
-        player.setAge(age);
+        if (position.equals("Defense")) {
+            return new Defense(position, name, weight, age);
+        } else if (position.equals("Tight End") || position.equals("Running Back") || position.equals("Receiver")) {
+            return new Receiver(position, name, weight, age);
+        } else if (position.equals("Quarterback")) {
+            return new Quarterback(position, name, weight, age);
+        } else {
+            return null;
+        }
     }
 }
