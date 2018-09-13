@@ -30,6 +30,13 @@ public class Reader {
         }
     }
 
+    /**
+     * Constructs a Defense, Quarterback, or Receiver with the proper fields set in the class
+     *
+     * @param reader the BufferedReader with the player info
+     * @return a new Player or null if the position read from the BufferedReader is null or empty
+     * @throws IOException if an input or output exception occurs while reading lines from the BufferedReader
+     */
     private static Player generatePlayer(BufferedReader reader) throws IOException {
         String position = reader.readLine();
 
