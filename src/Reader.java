@@ -33,8 +33,16 @@ public class Reader {
     private static Player generatePlayer(BufferedReader reader) throws IOException {
         String position = reader.readLine();
 
+        if (position == null || position.isEmpty()) {
+            return null;
+        }
+
+        String name = reader.readLine();
+        float weight = Float.parseFloat(reader.readLine());
+        int age = Integer.parseInt(reader.readLine());
+
         if (position.equals("Defense")) {
-            Defense defense = (Defense) constructPlayer(reader, position);
+            Defense defense = new Defense(position, name, weight, age);
 
             defense.setTackles(Integer.parseInt(reader.readLine()));
             defense.setSacks(Float.parseFloat(reader.readLine()));
@@ -42,7 +50,7 @@ public class Reader {
 
             return defense;
         } else if (position.equals("Tight End") || position.equals("Running Back") || position.equals("Receiver")) {
-            Receiver receiver = (Receiver) constructPlayer(reader, position);
+            Receiver receiver = new Receiver(position, name, weight, age);
 
             receiver.setReceptions(Integer.parseInt(reader.readLine()));
             receiver.setReceptionYards(Integer.parseInt(reader.readLine()));
@@ -53,7 +61,7 @@ public class Reader {
 
             return receiver;
         } else if (position.equals("Quarterback")) {
-            Quarterback quarterback = (Quarterback) constructPlayer(reader, position);
+            Quarterback quarterback = new Quarterback(position, name, weight, age);
 
             quarterback.setPassAttempts(Integer.parseInt(reader.readLine()));
             quarterback.setPassCompletions(Integer.parseInt(reader.readLine()));
@@ -66,22 +74,6 @@ public class Reader {
             quarterback.setSacks(Integer.parseInt(reader.readLine()));
 
             return quarterback;
-        } else {
-            return null;
-        }
-    }
-
-    private static Player constructPlayer(BufferedReader reader, String position) throws IOException {
-        String name = reader.readLine();
-        float weight = Float.parseFloat(reader.readLine());
-        int age = Integer.parseInt(reader.readLine());
-
-        if (position.equals("Defense")) {
-            return new Defense(position, name, weight, age);
-        } else if (position.equals("Tight End") || position.equals("Running Back") || position.equals("Receiver")) {
-            return new Receiver(position, name, weight, age);
-        } else if (position.equals("Quarterback")) {
-            return new Quarterback(position, name, weight, age);
         } else {
             return null;
         }
