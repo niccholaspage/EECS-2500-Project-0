@@ -4,6 +4,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Project 0
+ * EECS 2500-001
+ * Nicholas Nassar
+ */
 public class Reader {
     public static void main(String[] args) {
         List<Player> players = new ArrayList<>();
